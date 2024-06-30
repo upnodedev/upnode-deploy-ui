@@ -1,13 +1,13 @@
 import { CardChainDetail } from "@/components/ui/CardChainDetail";
 import { CardUI } from "@/components/ui/CardUI";
 import { InputCopyText } from "@/components/ui/InputCopytext";
-import { SelectCard } from "@/components/ui/SelectCard";
 import { SubHeader } from "@/components/ui/SubHeader";
 import { TextHeader } from "@/components/ui/TextHeader";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@radix-ui/react-separator";
 import { ArrowLeftIcon } from "lucide-react";
 import { NetworkInfoItem } from "./NetworkInfoItem";
+import { SelectCard } from "./SelectCard";
 ("@untitledui-icons/react/solid");
 
 const ChainSetting = () => {

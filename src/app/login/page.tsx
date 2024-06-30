@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 
-export default function Home() {
+export default function Login() {
   const form = useForm({
     defaultValues: {
       username: "",

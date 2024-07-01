@@ -4,7 +4,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -44,28 +43,19 @@ export default function Login() {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      htmlFor="username"
-                      className="mb-1.5 text-secondary-dark"
-                    >
-                      Username
-                    </FormLabel>
                     <FormControl>
                       <Input
+                        label="Username"
                         id="username"
                         placeholder="Enter your username"
                         className="rounded-full border-primary-dark bg-primary-dark px-3.5 py-2.5 text-base text-placeholder-dark"
                         {...field}
                       />
                     </FormControl>
-                    <FormLabel
-                      htmlFor="username"
-                      className="mt-5 text-secondary-dark"
-                    >
-                      Password
-                    </FormLabel>
+
                     <FormControl>
                       <Input
+                        label="Password"
                         id="password"
                         placeholder="••••••••"
                         className="rounded-full border-primary-dark bg-primary-dark px-3.5 py-2.5 text-base text-placeholder-dark"
@@ -78,7 +68,7 @@ export default function Login() {
               />
               <button
                 type="submit"
-                className="w-full rounded-full bg-[#1E61F2] px-4 py-2.5 text-text-md font-semibold text-white"
+                className="text-text-md w-full rounded-full bg-[#1E61F2] px-4 py-2.5 font-semibold text-white"
               >
                 Sign in
               </button>

@@ -9,7 +9,8 @@ import { useState } from "react";
 import { DashboardDeployCard } from "./DeployCard";
 import { RollupChainCard } from "./RollupChainCard";
 import { DashboardStatsCard } from "./StatsCard";
-export function Dashboard() {
+
+const Dashboard = () => {
   const [selectedRange, setSelectedRange] = useState(1);
   const selectedRangeData = [
     "12 months",
@@ -89,6 +90,6 @@ export function Dashboard() {
       </div>
     </div>
   );
-}
+};
 
 export default Dashboard;

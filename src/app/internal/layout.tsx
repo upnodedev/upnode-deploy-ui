@@ -21,7 +21,10 @@ export default function DashboardLayout({
             icon="/icons/home.svg"
             navBarPath="/internal/chain/setting"
           />
-          <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" />
+          <NavBarItem
+            icon="/icons/home.svg"
+            navBarPath="/internal/deploy/rollup"
+          />
           <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" />
           <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" />
         </nav>

@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 "use client";
 
 import { CardUI } from "@/components/ui/CardUI";
 import { SubHeader } from "@/components/ui/SubHeader";
-=======
->>>>>>> 6141fe726f4adfe3a06afec72b0498f1ff749d8b
 import { TextHeader } from "@/components/ui/TextHeader";
 import {
   Accordion,
@@ -13,7 +10,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@radix-ui/react-separator";
@@ -22,10 +18,6 @@ import { NetworkInfoItem } from "../../chain/setting/NetworkInfoItem";
 import { InputHelpToolTip } from "./InputHelpToolTip";
 import { SelectChainCard } from "./SelectChainCard";
 import { SelectStackCard } from "./SelectStackCard";
-=======
-import { ArrowLeftIcon } from "lucide-react";
-("@untitledui-icons/react/solid");
->>>>>>> 6141fe726f4adfe3a06afec72b0498f1ff749d8b
 
 const DeployRollUp = () => {
   return (
@@ -50,18 +42,12 @@ const DeployRollUp = () => {
         </div>
       </div>
       <div className="flex gap-6">
-<<<<<<< HEAD
         <div className="w-3/5 space-y-5">
           <Accordion type="single" collapsible className="w-full space-y-5">
-=======
-        <div className="w-3/5">
-          <Accordion type="single" collapsible className="w-full">
->>>>>>> 6141fe726f4adfe3a06afec72b0498f1ff749d8b
             <AccordionItem
               value="item-1"
               className="rounded-xl border border-secondary-dark bg-primary-dark p-6 shadow"
             >
-<<<<<<< HEAD
               <AccordionTrigger className="text-lg font-semibold text-primary-dark">
                 <div>
                   <div className="text-left">
@@ -70,21 +56,10 @@ const DeployRollUp = () => {
                       Configure the foundational elements of your rollup
                       blockchain.
                     </div>
-=======
-              <AccordionTrigger className="text-primary-dark">
-                <div className="text-left">
-                  <div className="no-underline">
-                    Step 1 / 5 Build your stack{" "}
-                  </div>
-                  <div>
-                    Configure the foundational elements of your rollup
-                    blockchain.
->>>>>>> 6141fe726f4adfe3a06afec72b0498f1ff749d8b
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-<<<<<<< HEAD
                 <div className="flex flex-col gap-5">
                   <div className="mt-6 flex gap-5">
                     <div className="flex-grow">
@@ -388,14 +363,6 @@ const DeployRollUp = () => {
             <img src="/icons/plus.svg" className="mr-2 h-5 w-5" /> Deploy
           </Button>
         </div>
-=======
-                Yes. It adheres to the WAI-ARIA design pattern.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-        <div className="w-2/5"></div>
->>>>>>> 6141fe726f4adfe3a06afec72b0498f1ff749d8b
       </div>
     </div>
   );

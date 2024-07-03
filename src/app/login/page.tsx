@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function Login() {
@@ -16,6 +17,7 @@ export default function Login() {
       username: "",
     },
   });
+  const { push } = useRouter();
   return (
     <div className="relative h-screen bg-primary-dark">
       <img
@@ -37,7 +39,12 @@ export default function Login() {
         </div>
         <div className="mt-8 w-full">
           <Form {...form}>
-            <form onSubmit={() => {}} className="w-full space-y-6">
+            <form
+              onSubmit={() => {
+                push("/internal/dashboard");
+              }}
+              className="w-full space-y-6"
+            >
               <FormField
                 control={form.control}
                 name="username"

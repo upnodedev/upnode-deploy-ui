@@ -54,17 +54,17 @@ const ChainSetting = () => {
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
             </div>
           </div>
@@ -74,32 +74,32 @@ const ChainSetting = () => {
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
               <SelectCard
                 title="Chain"
                 description="Chain information, gas fee, and more"
-                icon="/icons/chain.svg"
+                icon="/icons/setting-chain.svg"
               />
             </div>
           </div>

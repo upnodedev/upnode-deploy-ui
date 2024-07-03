@@ -15,9 +15,16 @@ export default function Login() {
   const form = useForm({
     defaultValues: {
       username: "",
+      password: "",
     },
   });
   const { push } = useRouter();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    push("/internal/dashboard");
+  };
+
   return (
     <div className="relative h-screen bg-primary-dark">
       <img
@@ -40,9 +47,7 @@ export default function Login() {
         <div className="mt-8 w-full">
           <Form {...form}>
             <form
-              onSubmit={() => {
-                push("/internal/dashboard");
-              }}
+              onSubmit={form.handleSubmit(onSubmit)}
               className="w-full space-y-6"
             >
               <FormField
@@ -59,11 +64,20 @@ export default function Login() {
                         {...field}
                       />
                     </FormControl>
-
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
                     <FormControl>
                       <Input
                         label="Password"
                         id="password"
+                        type="password"
                         placeholder="••••••••"
                         className="rounded-full border-primary-dark bg-primary-dark px-3.5 py-2.5 text-base text-placeholder-dark"
                         {...field}

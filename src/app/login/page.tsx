@@ -20,7 +20,7 @@ export default function Login() {
   });
   const { push } = useRouter();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(data);
     push("/internal/dashboard");
   };

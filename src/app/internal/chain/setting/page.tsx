@@ -21,7 +21,7 @@ const ChainSetting = () => {
         Go back
       </Button>
       <div className="mb-8 mt-6 flex items-center justify-between">
-        <TextHeader title="Chain Setting" description="Lorem" />
+        <TextHeader title="Chain Setting" description="Manage your chain settings" />
         <div className="flex gap-3">
           <Button className="shadow-s rounded-full bg-gradient-to-l from-[#6A11CB] to-[#2575FC] px-3.5 py-2.5 text-md font-semibold text-[#CECFD2]">
             <img src="/icons/plus.svg" className="mr-2 h-5 w-5" /> Deploy to
@@ -36,15 +36,15 @@ const ChainSetting = () => {
             <div className="mt-5 flex flex-col gap-3 rounded-xl border border-secondary-dark bg-secondary-dark p-4 shadow">
               <InputCopyText
                 title="RPC"
-                text="https://rpc-opkit-domains-jlpe79dzdp.t.conduit.xyz"
+                text="https://frax-l3-rpc.upnodedev.xyz"
               />
               <InputCopyText
-                title="RPC"
-                text="https://rpc-opkit-domains-jlpe79dzdp.t.conduit.xyz"
+                title="WS"
+                text="wss://frax-l3-rpc.upnodedev.xyz"
               />
               <InputCopyText
-                title="RPC"
-                text="https://rpc-opkit-domains-jlpe79dzdp.t.conduit.xyz"
+                title="Explorer"
+                text="https://frax-l3-explorer.upnodedev.xyz"
               />
             </div>
           </CardUI>
@@ -113,7 +113,7 @@ const ChainSetting = () => {
               <Separator className="h-[1px] bg-[#1F242F]" />
               <NetworkInfoItem
                 title="Slug"
-                value="conduit:opkit-domains-jlpe79dzdp"
+                value="fraxtal-l3"
               />
               <NetworkInfoItem title="Chain ID" value="5057" />
               <NetworkInfoItem
@@ -130,8 +130,8 @@ const ChainSetting = () => {
                 title="Settlement layer"
                 value={
                   <div className="flex gap-2">
-                    <img src="/logo/op.svg" className="h-6 w-6" alt="" />
-                    <div className="text-md font-semibold">Base</div>
+                    <img src="/icons/frax.png" className="h-6 w-6" alt="" />
+                    <div className="text-md font-semibold">Fraxtal Testnet</div>
                   </div>
                 }
                 canCopy={false}
@@ -140,8 +140,8 @@ const ChainSetting = () => {
                 title="Data availability layer"
                 value={
                   <div className="flex gap-2">
-                    <img src="/logo/op.svg" className="h-6 w-6" alt="" />
-                    <div className="text-md font-semibold">Celestia DA</div>
+                    <img src="/icons/frax.png" className="h-6 w-6" alt="" />
+                    <div className="text-md font-semibold">Fraxtal Testnet</div>
                   </div>
                 }
                 canCopy={false}
@@ -153,13 +153,13 @@ const ChainSetting = () => {
               />
               <NetworkInfoItem
                 title="Native Token"
-                value="0x00000000000000000999900"
+                value="frxETH"
               />
               <NetworkInfoItem
                 title="Withdrawal Period"
-                value="600 secs 10 minutes"
+                value="10 minutes"
               />
-              <NetworkInfoItem title="Gas Block Limit" value="30,000.000" />
+              <NetworkInfoItem title="Gas Block Limit" value="30,000,000" />
               <NetworkInfoItem
                 title="Contract Addresses"
                 value="contracts.json"

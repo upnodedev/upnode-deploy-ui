@@ -86,13 +86,13 @@ const DeployRollUp = () => {
                         img="/logo/op.svg"
                         title="OP Stack"
                         description="Write a description"
-                        isSelected={false}
+                        isSelected={true}
                       />
                       <SelectStackCard
                         img="/logo/arbitrum.svg"
                         title="Arbitrum Orbit"
                         description="Write a description"
-                        isSelected={true}
+                        isSelected={false}
                       />
                     </div>
                   </div>
@@ -105,28 +105,28 @@ const DeployRollUp = () => {
                         isSelected={false}
                       />
                       <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
+                        img="/logo/op.svg"
+                        title="Optimism L2"
                         isSelected={false}
                       />
                       <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
+                        img="/icons/base.svg"
+                        title="Base L2"
+                        isSelected={false}
+                      />
+                      <SelectChainCard
+                        img="/icons/frax.png"
+                        title="Frax L2"
                         isSelected={true}
-                      />
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={false}
                       />
                     </div>
                   </div>
                   <Separator className="h-[1px] w-full border border-secondary-dark" />
                   <div>
                     <div className="mb-3 font-medium text-primary-dark">
-                      Lorem
+                      Data Availability
                     </div>
-                    <SubHeader title="Select a Data availability" />
+                    <SubHeader title="Select a Data availability provider" />
                     <div className="mb-3.5 grid grid-cols-4 gap-5">
                       <SelectChainCard
                         img="/logo/ethereum.svg"
@@ -314,8 +314,8 @@ const DeployRollUp = () => {
                 title="Settlement layer"
                 value={
                   <div className="flex gap-2">
-                    <img src="/logo/op.svg" className="h-6 w-6" alt="" />
-                    <div className="text-md font-semibold">Base</div>
+                    <img src="/icons/frax.png" className="h-6 w-6" alt="" />
+                    <div className="text-md font-semibold">Fraxtal Testnet</div>
                   </div>
                 }
                 canCopy={false}
@@ -324,8 +324,8 @@ const DeployRollUp = () => {
                 title="Data availability layer"
                 value={
                   <div className="flex gap-2">
-                    <img src="/logo/op.svg" className="h-6 w-6" alt="" />
-                    <div className="text-md font-semibold">Celestia DA</div>
+                    <img src="/icons/near.webp" className="h-6 w-6" alt="" />
+                    <div className="text-md font-semibold">Near DA</div>
                   </div>
                 }
                 canCopy={false}
@@ -337,10 +337,10 @@ const DeployRollUp = () => {
               />
               <NetworkInfoItem
                 title="Native Token"
-                value="0x00000000000000000999900"
+                value="frxETH"
               />
-              <Separator className="h-[1px] bg-[#1F242F]" />
-              <div>
+              <Separator className="h-[1px] bg-[#1F242F] hidden" />
+              <div className="hidden">
                 <div className="mb-3 text-sm text-quaternary-dark">
                   Costs and pricing
                 </div>

@@ -6,13 +6,13 @@ export const CardChainDetail = () => {
       <div className="flex gap-3">
         <ProjectChainIcon />
         <div>
-          <div className="font-semibold text-primary-dark">Hokum Chain</div>
-          <div className="flex gap-1">
-            <img src="/icons/base.svg" alt="" />
-            <div className="text-sm text-secondary-dark">Base</div>
-            <div className="text-sm text-secondary-dark">+</div>
-            <img src="/icons/celestia.svg" alt="" />
-            <div className="text-sm text-secondary-dark">Celestia DA</div>
+          <div className="font-semibold text-primary-dark">Fraxtal L3 Chain</div>
+          <div className="flex gap-1 items-center">
+            <img src="/icons/frax.png" className="w-4 h-4" alt="" />
+            <div className="text-sm text-secondary-dark">Fraxtal Testnet</div>
+            {/* <div className="text-sm text-secondary-dark">+</div>
+            <img src="/icons/celestia.svg" className="w-4 h-4" alt="" />
+            <div className="text-sm text-secondary-dark">Celestia DA</div> */}
           </div>
         </div>
       </div>

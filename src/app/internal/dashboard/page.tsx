@@ -42,7 +42,7 @@ const Dashboard = () => {
             <div className="w-4/6">
               <div className="mb-5 flex justify-between">
                 <div className="text-lg font-semibold text-primary-dark">
-                  Lorem
+                  Fraxtal L3 Chain
                 </div>
                 <Button className="rounded-full bg-active-dark px-3.5 py-2.5 text-sm font-semibold text-[#CECFD2] shadow-sm hover:bg-secondary-_hover-dark">
                   View report

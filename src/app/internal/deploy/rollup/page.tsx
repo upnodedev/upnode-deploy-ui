@@ -18,8 +18,90 @@ import { NetworkInfoItem } from "../../chain/setting/NetworkInfoItem";
 import { InputHelpToolTip } from "./InputHelpToolTip";
 import { SelectChainCard } from "./SelectChainCard";
 import { SelectStackCard } from "./SelectStackCard";
+import { useState } from "react";
+
+const initialState = {
+  BATCHER_PRIVATE_KEY:
+    "0xe7200279dabfc7aebb57ffa0f3c59244bb06ca920b804262019ad5a1dff642a1",
+  PROPOSER_PRIVATE_KEY:
+    "0xe7200279dabfc7aebb57ffa0f3c59244bb06ca920b804262019ad5a1dff642a1",
+  SEQUENCER_PRIVATE_KEY:
+    "0xe7200279dabfc7aebb57ffa0f3c59244bb06ca920b804262019ad5a1dff642a1",
+  DEPLOYER_PRIVATE_KEY:
+    "0xe7200279dabfc7aebb57ffa0f3c59244bb06ca920b804262019ad5a1dff642a1",
+  L2_CHAIN_NAME: "rolluptest",
+  L2_CHAIN_ID: 43333,
+  CELESTIA_RPC: "rpc-mocha.pops.one",
+};
+
+const SattlementLayer = [
+  {
+    img: "/logo/ethereum.svg",
+    title: "Ethereum L1",
+    value: "ethereum",
+  },
+  {
+    img: "/logo/op.svg",
+    title: "Optimism L2",
+    value: "optimism",
+  },
+  {
+    img: "/icons/base.svg",
+    title: "Base L2",
+    value: "base",
+  },
+  {
+    img: "/icons/frax.png",
+    title: "Frax L2",
+    value: "frax",
+  },
+];
+
+const DaLayer = [
+  {
+    img: "/icons/celestia.svg",
+    title: "Celestia DA",
+    value: "celestia",
+  },
+  {
+    img: "/logo/ethereum.svg",
+    title: "Ethereum DA",
+    value: "ethereum",
+    disabled: true,
+  },
+  {
+    img: "/icons/near.webp",
+    title: "Near DA",
+    value: "near",
+    disabled: true,
+  },
+];
+
+const privateKeyList = [
+  "BATCHER_PRIVATE_KEY",
+  "PROPOSER_PRIVATE_KEY",
+  "SEQUENCER_PRIVATE_KEY",
+  "DEPLOYER_PRIVATE_KEY",
+];
 
 const DeployRollUp = () => {
+  const [state, setState] = useState({
+    L2_CHAIN_NAME: "",
+    L2_CHAIN_ID: "",
+    L1_RPC_URL: "",
+    BATCHER_PRIVATE_KEY: "",
+    PROPOSER_PRIVATE_KEY: "",
+    SEQUENCER_PRIVATE_KEY: "",
+    DEPLOYER_PRIVATE_KEY: "",
+    CELESTIA_RPC: "",
+    sattlement_layer: "ethereum",
+    da_layer: "celestia",
+  });
+
+  const onChanngValue = (key: string, value: string) => {
+    setState((prev) => ({ ...prev, [key]: value }));
+  };
+
   return (
     <div className="px-8 py-8">
       <Button
@@ -43,7 +125,11 @@ const DeployRollUp = () => {
       </div>
       <div className="flex gap-6">
         <div className="w-3/5 space-y-5">
-          <Accordion type="single" collapsible className="w-full space-y-5">
+          <Accordion
+            type="multiple"
+            defaultValue={["item-1"]}
+            className="w-full space-y-5"
+          >
             <AccordionItem
               value="item-1"
               className="rounded-xl border border-secondary-dark bg-primary-dark p-6 shadow"
@@ -51,7 +137,7 @@ const DeployRollUp = () => {
               <AccordionTrigger className="text-lg font-semibold text-primary-dark">
                 <div>
                   <div className="text-left">
-                    <div>Step 1 / 5 Build your stack </div>
+                    <div>Build your stack </div>
                     <div className="text-sm font-normal text-quaternary-dark">
                       Configure the foundational elements of your rollup
                       blockchain.
@@ -65,14 +151,14 @@ const DeployRollUp = () => {
                     <div className="flex-grow">
                       <Input
                         label="Rollup name"
-                        id="username"
+                        id="L2_CHAIN_NAME"
                         placeholder="e.g. Turbo Chain"
                         required
                       />
                     </div>
                     <div className="flex-grow">
                       <Input
-                        id="username"
+                        id="L2_CHAIN_ID"
                         label="Chain ID"
                         required
                         placeholder="1234"
@@ -93,32 +179,24 @@ const DeployRollUp = () => {
                         title="Arbitrum Orbit"
                         description="Write a description"
                         isSelected={false}
+                        disabled={true}
                       />
                     </div>
                   </div>
                   <div>
                     <SubHeader title="Select a Settlement layer" />
                     <div className="grid grid-cols-4 gap-5">
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={false}
-                      />
-                      <SelectChainCard
-                        img="/logo/op.svg"
-                        title="Optimism L2"
-                        isSelected={false}
-                      />
-                      <SelectChainCard
-                        img="/icons/base.svg"
-                        title="Base L2"
-                        isSelected={false}
-                      />
-                      <SelectChainCard
-                        img="/icons/frax.png"
-                        title="Frax L2"
-                        isSelected={true}
-                      />
+                      {SattlementLayer.map((item, index) => (
+                        <SelectChainCard
+                          key={index}
+                          img={item.img}
+                          title={item.title}
+                          isSelected={state.sattlement_layer === item.value}
+                          onClick={() =>
+                            onChanngValue("sattlement_layer", item.value)
+                          }
+                        />
+                      ))}
                     </div>
                   </div>
                   <Separator className="h-[1px] w-full border border-secondary-dark" />
@@ -128,50 +206,64 @@ const DeployRollUp = () => {
                     </div>
                     <SubHeader title="Select a Data availability provider" />
                     <div className="mb-3.5 grid grid-cols-4 gap-5">
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={false}
-                      />
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={true}
-                      />
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={false}
-                      />
-                      <SelectChainCard
-                        img="/logo/ethereum.svg"
-                        title="Ethereum L1"
-                        isSelected={false}
-                      />
+                      {DaLayer.map((item, index) => (
+                        <SelectChainCard
+                          key={index}
+                          img={item.img}
+                          title={item.title}
+                          isSelected={state.da_layer === item.value}
+                          onClick={() => onChanngValue("da_layer", item.value)}
+                          disabled={item.disabled}
+                        />
+                      ))}
                     </div>
                     <div className="flex flex-col gap-3 rounded-xl border border-secondary-dark bg-secondary-dark p-4">
                       <InputHelpToolTip
                         label="Settlement RPC"
                         placeholder="Enter the RPC endpoint for the settlement layer."
-                      />
-                      <InputHelpToolTip
-                        label="Admin Wallet Address"
-                        placeholder="OX..."
+                        value={state.L1_RPC_URL}
+                        onChange={(e) =>
+                          onChanngValue("L1_RPC_URL", e.target.value)
+                        }
                       />
                       <InputHelpToolTip
                         label="Deployer Private Key"
                         placeholder="OX..."
+                        value={state.DEPLOYER_PRIVATE_KEY}
+                        onChange={(e) =>
+                          onChanngValue("DEPLOYER_PRIVATE_KEY", e.target.value)
+                        }
                       />
                       <InputHelpToolTip
-                        label="Operator Private Key"
+                        label="Batcer Private Key"
                         placeholder="OX..."
+                        value={state.BATCHER_PRIVATE_KEY}
+                        onChange={(e) =>
+                          onChanngValue("BATCHER_PRIVATE_KEY", e.target.value)
+                        }
+                      />
+                      <InputHelpToolTip
+                        label="Sequencer Private Key"
+                        placeholder="OX..."
+                        value={state.SEQUENCER_PRIVATE_KEY}
+                        onChange={(e) =>
+                          onChanngValue("SEQUENCER_PRIVATE_KEY", e.target.value)
+                        }
+                      />
+                      <InputHelpToolTip
+                        label="Proposer Private Key"
+                        placeholder="OX..."
+                        value={state.PROPOSER_PRIVATE_KEY}
+                        onChange={(e) =>
+                          onChanngValue("PROPOSER_PRIVATE_KEY", e.target.value)
+                        }
                       />
                     </div>
                   </div>
                 </div>
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem
+            {/* <AccordionItem
               value="item-2"
               className="rounded-xl border border-secondary-dark bg-primary-dark p-6 shadow"
             >
@@ -211,9 +303,9 @@ const DeployRollUp = () => {
                   </div>
                 </div>
               </AccordionContent>
-            </AccordionItem>
+            </AccordionItem> */}
           </Accordion>
-          <div className="rounded-xl border border-secondary-dark bg-primary-dark p-6 shadow">
+          {/* <div className="rounded-xl border border-secondary-dark bg-primary-dark p-6 shadow">
             <div className="space-y-4">
               <div className="flex justify-between gap-3">
                 <div>
@@ -245,7 +337,7 @@ const DeployRollUp = () => {
                 <div className="text-secondary-dark">Non-rebasing</div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="rounded-xl border border-secondary-dark bg-tertiary-dark p-6 shadow">
             <div className="flex justify-between gap-3">
               <div>
@@ -335,11 +427,8 @@ const DeployRollUp = () => {
                 value={<div className="text-md font-semibold">Testnet</div>}
                 canCopy={false}
               />
-              <NetworkInfoItem
-                title="Native Token"
-                value="frxETH"
-              />
-              <Separator className="h-[1px] bg-[#1F242F] hidden" />
+              <NetworkInfoItem title="Native Token" value="frxETH" />
+              <Separator className="hidden h-[1px] bg-[#1F242F]" />
               <div className="hidden">
                 <div className="mb-3 text-sm text-quaternary-dark">
                   Costs and pricing

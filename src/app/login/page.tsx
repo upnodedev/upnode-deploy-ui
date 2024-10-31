@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { useAuth } from "@/context/AuthContext";
+import { useEffect } from "react";
 
 export default function Login() {
   const form = useForm({
@@ -19,10 +21,30 @@ export default function Login() {
     },
   });
   const { push } = useRouter();
+  const { login, user, loading } = useAuth();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    push("/internal/dashboard");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/internal/dashboard");
+    }
+  }, [loading, user, router]);
+
+  const onSubmit = async (data: any) => {
+    const { username, password } = data;
+    if (!username || !password) {
+      return;
+    }
+
+    await login(username, password)
+      .then(() => {
+        push("/internal/dashboard");
+      })
+      .catch(() => {
+        // clear form
+        form.reset();
+      });
   };
 
   return (

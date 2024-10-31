@@ -18,15 +18,15 @@ export default function DashboardLayout({
           </Link>
           <NavBarItem icon="/icons/home.svg" navBarPath="/internal/dashboard" />
           <NavBarItem
-            icon="/icons/home.svg"
-            navBarPath="/internal/chain/setting"
-          />
-          <NavBarItem
-            icon="/icons/home.svg"
+            icon="/icons/plus.svg"
             navBarPath="/internal/deploy/rollup"
           />
-          <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" />
-          <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" />
+          <NavBarItem
+            icon="/icons/setting.svg"
+            navBarPath="/internal/chain/setting"
+          />
+          {/* <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" /> */}
+          {/* <NavBarItem icon="/icons/home.svg" navBarPath="/internal/" /> */}
         </nav>
         <div className="flex flex-col-reverse items-center gap-4 bg-primary-dark py-6">
           <div className="h-12 w-12">

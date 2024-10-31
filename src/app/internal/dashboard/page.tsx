@@ -9,6 +9,8 @@ import { useState } from "react";
 import { DashboardDeployCard } from "./DeployCard";
 import { RollupChainCard } from "./RollupChainCard";
 import { DashboardStatsCard } from "./StatsCard";
+import { useProtectedRoute } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
   const [selectedRange, setSelectedRange] = useState(1);
@@ -19,6 +21,7 @@ const Dashboard = () => {
     "7 days",
     "24 hours",
   ];
+  useProtectedRoute();
   return (
     <div className="px-8 py-8">
       <div className="flex justify-between">
